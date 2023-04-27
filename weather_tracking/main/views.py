@@ -3,19 +3,21 @@ from .apikey import appid
 from .models import City
 import requests
 from .forms import CityForm
+
+
 def main_page(request):
-    # Делаем Api запрос к стороннему сайту.
+    # Делаем Api-запрос к стороннему сайту.
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
     # Если был выбран метод post.
     if request.method == 'POST':
         # Формируем форму в которой отображается название города в виде строчки html.
         form = CityForm(request.POST)
-        # Сохранение значение города формы в базу данных.
+        # Сохранение формы.
         form.save()
+
 
     # Формирование пустой формы.
     form = CityForm
-    print(form)
     # Переменная cities, отвечающая за вывод объектов класса City (Содержится только название города) .
     cities = City.objects.all()
     # Создаем  пустой список.
@@ -32,5 +34,3 @@ def main_page(request):
     context = {"all_info": all_cities, "form": form}
     # Возвращаем страницу html и нужные значения.
     return render(request, "main/main_page.html", context)
-
-
