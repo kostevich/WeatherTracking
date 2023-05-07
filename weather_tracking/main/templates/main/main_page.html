@@ -29,11 +29,27 @@
             </form>
             </div>
             <div class="col-4 offset-1">
-            <h1>Информация о различных городах</h1>
+            <h3>Информация о выбранном городе</h3>
+            {% for info in list_city_info %}
+            <div class="alert alert-info">
+                <div class="row">
+                    <div class="col-1">
+                    <b>Город: </b>{{ info.city }}<br>
+                    <b>Температура: </b>{{ info.temp }}<sup>0</sup><br>
+                    <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt = "Фото погоды" class="img-thunbnail">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+<div class="col-4 offset-1">
+            <h4>Информация о различных городах</h4>
                 {% for info in all_info %}
                 <div class="alert alert-info">
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-1">
                         <b>Город: </b>{{ info.city }}<br>
                         <b>Температура: </b>{{ info.temp }}<sup>0</sup><br>
                         <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt = "Фото погоды" class="img-thunbnail">
@@ -42,8 +58,6 @@
                 </div>
                 {% endfor %}
             </div>
-        </div>
-    </div>
 </div>
 </div>
 
