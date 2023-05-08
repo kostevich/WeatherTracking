@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .apikey import appid
 from .models import City
-from .models import idopenweather
 import requests
 from .forms import CityForm
 
@@ -13,14 +12,13 @@ def main_page(request):
     if request.method == 'POST':
         # Формируем форму в которой отображается название города в виде строчки html.
         form = CityForm(request.POST)
-        print(form)
         # Сохранение формы.
         form.save()
 
 
     # Формирование пустой формы.
     form = CityForm
-    # Переменная cities, отвечающая за вывод объектов класса City (Содержится только название города) .
+    # Переменная cities, отвечающая за вывод объектов класса City (Содержится только название города).
     cities = City.objects.all()
     # Создаем  пустой список.
     all_cities = []
@@ -29,8 +27,7 @@ def main_page(request):
         # Посылаем запрос к стороннему сайту, получаем в формате json.
         res = requests.get(url.format(city.name)).json()
         # Формируем словарь с ключами: название, температура, иконка.
-        city_info = {"city": city.name, "temp": res["main"]["temp"], "icon": res["weather"][0]["icon"], "idres": res["weather"][0]["id"]}
-        idopenweather.id = res["weather"][0]["id"]
+        city_info = {"city": city.name, "temp": res["main"]["temp"], "icon": res["weather"][0]["icon"], "id": res["id"]}
         list_city_info = []
         list_city_info.append(city_info)
         # Добавляем словарь в список с названиями городов, температурой и иконкой.
