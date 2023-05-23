@@ -29,14 +29,14 @@
             </div>
             <div class="col-4 offset-1">
             <h3>Информация о выбранном городе</h3>
-            {% for city in cities %}
-                {% if city %}
+            {% for cityi in cities %}
+                {% if cityi  %}
             <div class="alert alert-info">
                 <div class="row">
                     <div class="col-1">
-                    <b>Город: </b>{{ city.name }}<br>
-                    <b>Температура: </b>{{ city.temperature }}<sup>°C</sup><br>
-                    <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt = "Фото погоды" class="img-thunbnail">
+                    <b>Город: </b>{{ cityi.name }}<br>
+                    <b>Температура: </b>{{ cityi.temperature }}<sup>°C</sup><br>
+                    <img src="http://openweathermap.org/img/w/{{ cityi.icon }}.png" alt = "Фото погоды" class="img-thunbnail">
                     </div>
                 </div>
             </div>
@@ -47,15 +47,15 @@
     </div>
 <div class="col-4 offset-1">
             <h4>Информация о различных городах</h4>
-                {% for city in cities %}
-                    {% if city  %}
+                {% for cityi in cities %}
+                    {% if cityi  %}
                 <div class="alert alert-info">
                     <div class="row">
                         <div class="col-1">
-                        <b>Город: </b>{{ city.name }}<br>
-                        <b>id: </b>{{ city.id }}<br>
-                        <b>Температура: </b>{{ city.temperature }}<sup>°C</sup><br>
-                        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt = "Фото погоды" class="img-thunbnail">
+                        <b>Город: </b>{{ cityi.name }}<br>
+                        <b>id: </b>{{ cityi.id }}<br>
+                        <b>Температура: </b>{{ cityi.temperature }}<sup>°C</sup><br>
+                        <img src="http://openweathermap.org/img/w/{{ cityi.icon }}.png" alt = "Фото погоды" class="img-thunbnail">
                         </div>
                     </div>
                 </div>

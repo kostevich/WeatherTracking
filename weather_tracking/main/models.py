@@ -1,17 +1,22 @@
 from django.db import models
 
-# Create model City for output cities.
+# Создание динамической модели.
 class City(models.Model):
-    # Output of the name of the city with a length restriction.
+    # Создание полей модели:
+    # name - название города, с максимальной длинной 30.
     name = models.CharField(max_length=30)
-    id = models.CharField(primary_key=True, unique=True, max_length=20, default=0, editable=True)
-    temperature = models.CharField(max_length=10, default=0, editable=True)
+    # id - id города на сайте openweathermap.org, который не повторяется и не может иметь значение NUll.
+    id = models.IntegerField(primary_key=True, default=0, editable=True)
+    # temperature - температура города, изменяющаяся при каждой перезагрузке.
+    temperature = models.IntegerField(default=0, editable=True)
+    # icon - изображение погоды в городе, изменяющаяся при каждой перезагрузке.
     icon = models.ImageField(default=0, editable=True)
-    # Output str instead of the object.
+    # Вывод строки вместо объекта для каждого поля.
     def __str__(self):
-        # Output str of the name of the city instead of the object.
         return self.name
         return self.id
+        return self.temperature
+        return self.icon
 
 
 
