@@ -11,6 +11,9 @@ def main_page(request):
     # Переменная cities, отвечающая за вывод объектов класса City (Содержится только название города).
     cities = City.objects.all()
     re_name = None
+    n = None
+    t = None
+    i = None
     # Если был выбран метод post.
     if request.method == 'POST':
         # Формируем форму в которой отображается название города в виде строчки html.
@@ -27,6 +30,10 @@ def main_page(request):
         City.objects.filter(id=0).delete()
         # Сохранение формы.
         form.save()
+        for city in cities:
+            edit_temperature = requests.get(url.format(city)).json()
+            City.objects.filter(name=city).update(temperature=edit_temperature["main"]["temp"])
+            print('r')
     # Формирование пустой формы.
     form = CityForm()
     for city in cities:
@@ -40,14 +47,7 @@ def main_page(request):
     context = {'cities': cities, "form": form, "re_name": re_name, "t": t, "n": n, "i": i}
     # Возвращаем страницу html и нужные значения.
     return render(request, "main/main_page.html", context)
-def edit_temperature(request):
-    url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
-    # Переменная cities, отвечающая за вывод объектов класса City (Содержится только название города).
-    cities = City.objects.all()
-    for city in cities:
-        edit_temperature = requests.get(url.format(city)).json()
-        City.objects.filter(name=city).update(temperature=edit_temperature["main"]["temp"])
-        print('r')
+
 
 
 
