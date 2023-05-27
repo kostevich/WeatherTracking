@@ -11,8 +11,8 @@ class City(models.Model):
     temperature = models.IntegerField(default=0, editable=True)
     # icon - изображение погоды в городе, изменяющаяся при каждой перезагрузке.
     icon = models.ImageField(default=0, editable=True)
-    created_at = models.DateTimeField(auto_now=True)
-    updated_at = models.DateTimeField(auto_now_add=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, editable=True, null=True)
 
     class Meta:
         ordering = ['-updated_at', '-created_at']
