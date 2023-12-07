@@ -3,5 +3,4 @@ __pycache__
 migrations
 
 # Confidential files
-db.sqlite3
 weather_tracking/db.sqlite3
