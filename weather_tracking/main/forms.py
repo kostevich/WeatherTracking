@@ -1,12 +1,22 @@
+
+#==========================================================================================#
+# >>>>> ПОДКЛЮЧЕНИЕ БИБЛИОТЕК И МОДУЛЕЙ <<<<< #
+#==========================================================================================#
+
+from django.forms import ModelForm, TextInput
 from .models import City
-from django.forms import ModelForm, TextInput, widgets
 
-
+#==========================================================================================#
+# >>>>> СОЗДАНИЕ ФОРМЫ CityForm<<<<< #
+#==========================================================================================#
 
 class CityForm(ModelForm):
+    # Создаем Meta, конструирующий class CityForm.
     class Meta:
+        # Работаем с моделью City.
         model = City
+        # Данными из формы заполняем поле name.
         fields = ['name']
-        widgets = {'name': TextInput(attrs={'class': 'form-control', 'name': 'city', 'id': 'city', 'placeholder': "Введите название города"})}
-
-
+        # Оформление поля формы.
+        widgets = {'name': TextInput(
+            attrs={'class': 'form-control', 'name': 'city', 'id': 'city', 'placeholder': "Введите название города"})}

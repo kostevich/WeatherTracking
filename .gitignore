@@ -1,0 +1,6 @@
+# Program files
+__pycache__
+migrations
+
+# Confidential files
+db.sqlite3

@@ -1,0 +1,3 @@
+Django
+git+https://github.com/DUB1401/dublib
+requests
