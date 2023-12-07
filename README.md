@@ -5,7 +5,7 @@
 # Порядок установки и использования
 1. Загрузить репозиторий. Распаковать.
 2. Установить [Python](https://www.python.org/downloads/) версии не старше 3.11. Рекомендуется добавить в PATH.
-3. В среду исполнения установить следующие пакеты: [dublib](https://github.com/DUB1401/dublib), [Django](https://github.com/django/django?ysclid=lph3fmn0za256973455) не старше 4.2.1, [requests](https://github.com/psf/requests?ysclid=lpv45zob9i45918043) не старше 2.31.0.
+3. В среду исполнения установить следующие пакеты: [Django](https://github.com/django/django?ysclid=lph3fmn0za256973455) не старше 4.2.1, [dublib](https://github.com/DUB1401/dublib), [requests](https://github.com/psf/requests?ysclid=lpv45zob9i45918043) не старше 2.31.0.
 ```
 pip install Django
 pip install git+https://github.com/DUB1401/dublib#egg=dublib
