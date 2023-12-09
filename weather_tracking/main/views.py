@@ -92,7 +92,7 @@ def main_page(request):
                 datetimenow = datetime.now().isoformat(timespec='seconds', sep=' ')
 
                 # Выведение информации об актуальности данных и время последнего обновления.
-                updating_information = f'{datetimenow}'
+                updating_information = f'{datetimenow}'   
 
     # Формирование пустой формы.
     form = CityForm()
